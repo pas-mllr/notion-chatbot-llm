@@ -20,13 +20,13 @@ if 'messages' not in st.session_state:
 
 # Display chat messages from history on app rerun
 # Custom avatar for the assistant, default avatar for user
-for message in st.session_state.messages:
-    if message["role"] == 'assistant':
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-    else:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+# for message in st.session_state.messages:
+#     if message["role"] == 'assistant':
+#         with st.chat_message(message["role"]):
+#             st.markdown(message["content"])
+#     else:
+#         with st.chat_message(message["role"]):
+#             st.markdown(message["content"])
 
 # Chat logic
 if query := st.chat_input("Ask me anything"):
