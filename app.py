@@ -70,6 +70,7 @@
 #     # Add assistant message to chat history
 #     st.session_state.messages.append({"role": "assistant", "content": response})
 # **app.py**
+import random
 import time
 import streamlit as st
 from utils import load_chain
@@ -107,7 +108,17 @@ if query := st.chat_input("Ask me anything"):
         message_placeholder = st.empty()
         # Send user's question to our chain
         # result = chain({"question": query})
-        result = "Sorry. I'm still learning"
+        # result = "Sorry. I'm still learning"
+        # result = "Sorry. I'm still learning"
+        result = random.choice(
+            [
+                "pyAtlas tab contain all common tools of Revit"
+                "We have many panels: RnD Core, Annotation, Datum, Audit_Asset, Collector, Interior, View, Sheet, Other"
+                "Hello there! How can I assist you today?",
+                "Hi, human! Is there anything I can help you with?",
+                "Do you need help?",
+            ]
+        )
         # response = result['answer']
         response = result
         full_response = ""
