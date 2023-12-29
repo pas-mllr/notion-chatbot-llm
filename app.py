@@ -8,12 +8,12 @@ st.set_page_config(
     page_title="Your Notion Chatbot",
 )
 
-# # Initialize LLM chain
-# chain = load_chain()
+# Initialize LLM chain
+chain = load_chain()
 
-# Initialize LLM chain in session_state
-if 'chain' not in st.session_state:
-    st.session_state['chain']= load_chain()
+# # Initialize LLM chain in session_state
+# if 'chain' not in st.session_state:
+#     st.session_state['chain']= load_chain()
 
 # Initialize chat history
 if 'messages' not in st.session_state:
@@ -42,7 +42,7 @@ if query := st.chat_input("Ask me anything"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         # Send user's question to our chain
-        result = st.session_state['chain']({"question": query})
+        result = chain({"question": query})
         response = result['answer']
         full_response = ""
 
