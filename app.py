@@ -1,6 +1,10 @@
 import time
 import streamlit as st
-from utils import load_chain
+from langchain.chains import ConversationChain
+from langchain.llms import OpenAI
+from streamlit_chat import message
+# from utils import load_chain
+import openai
 
 
 # Configure streamlit page
@@ -9,8 +13,19 @@ st.set_page_config(
 )
 
 # Initialize LLM chain
-chain = load_chain()
+# llm = OpenAI(client=OpenAI, streaming=True, callbacks=[StreamlitCallbackHandler(message_placeholder)])
+#
+# chain = load_chain()
 
+
+def load_chain():
+    """Logic for loading the chain you want to use should go here."""
+    llm = OpenAI(temperature=0)
+    chain = ConversationChain(llm=llm)
+    return chain
+
+
+chain = load_chain()
 # # Initialize LLM chain in session_state
 # if 'chain' not in st.session_state:
 #     st.session_state['chain']= load_chain()
