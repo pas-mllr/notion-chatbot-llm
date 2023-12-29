@@ -107,8 +107,7 @@ if query := st.chat_input("Ask me anything"):
     with st.chat_message("assistant", avatar=company_logo):
         message_placeholder = st.empty()
         # Send user's question to our chain
-        # result = chain({"question": query})
-        # result = "Sorry. I'm still learning"
+
         result = random.choice(
             [
                 "pyAtlas tab contain all common tools of Revit",
@@ -118,6 +117,7 @@ if query := st.chat_input("Ask me anything"):
                 "Do you need help?",
             ]
         )
+
         response = result
         full_response = ""
         # Simulate stream of response with milliseconds delay
