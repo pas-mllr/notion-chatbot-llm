@@ -1,10 +1,6 @@
 import time
 import streamlit as st
-from langchain.chains import ConversationChain
-from langchain.llms import OpenAI
-from streamlit_chat import message
 from utils import load_chain
-import openai
 
 
 # Configure streamlit page
