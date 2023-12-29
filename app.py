@@ -83,12 +83,6 @@ st.set_page_config(
 )
 # Initialize LLM chain
 chain = load_chain()
-
-def get_text():
-    input_text = st.text_input("You: ", st.session_state.get("input", "Hello, how are you?"), key="input",
-                               placeholder="Your Notion bot, ask me anything")
-    return input_text
-
 # Initialize chat history
 if 'messages' not in st.session_state:
     # Start with first message from assistant
@@ -104,9 +98,7 @@ for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 # Chat logic
-query = get_text()
-# if query := st.chat_input("Ask me anything"):
-if query:
+if query := st.chat_input("Ask me anything"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": query})
     # Display user message in chat message container
@@ -115,16 +107,26 @@ if query:
     with st.chat_message("assistant", avatar=company_logo):
         message_placeholder = st.empty()
         # Send user's question to our chain
-        result = chain({"question": query})
+        # result = chain({"question": query})
         # result = "Sorry. I'm still learning"
-        # result = st.session_state['chain']({"question": query})
+        result = random.choice(
+            [
+                "pyAtlas tab contain all common tools of Revit",
+                "We have many panels: RnD Core, Annotation, Datum, Audit_Asset, Collector, Interior, View, Sheet, Other",
+                "Hello there! How can I assist you today?",
+                "Hi, human! Is there anything I can help you with?",
+                "Do you need help?",
+            ]
+        )
+        # response = result['answer']
+        response = result
         full_response = ""
         # Simulate stream of response with milliseconds delay
-        for chunk in result.split():
+        for chunk in response.split():
             full_response += chunk + " "
             time.sleep(0.05)
             # Add a blinking cursor to simulate typing
             message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
     # Add assistant message to chat history
-    st.session_state.messages.append({"role": "assistant", "content": result})
+    st.session_state.messages.append({"role": "assistant", "content": response})
