@@ -106,7 +106,8 @@ if query := st.chat_input("Ask me anything"):
     with st.chat_message("assistant", avatar=company_logo):
         message_placeholder = st.empty()
         # Send user's question to our chain
-        result = chain({"question": query})
+        # result = chain({"question": query})
+        result = "Sorry. I'm still learning"
         response = result['answer']
         full_response = ""
         # Simulate stream of response with milliseconds delay
