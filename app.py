@@ -118,7 +118,7 @@ if query:
         result = chain({"question": query})
         # result = "Sorry. I'm still learning"
         # result = st.session_state['chain']({"question": query})
-        # response = result
+
         full_response = ""
         # Simulate stream of response with milliseconds delay
         for chunk in result.split():
