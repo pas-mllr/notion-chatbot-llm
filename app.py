@@ -57,8 +57,8 @@ if query := st.chat_input("Ask me anything"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         # Send user's question to our chain
-        # result = chain({"question": query})
-        result = chain.run(input=query)
+        result = chain({"question": query})
+        # result = chain.run(input=query)
         # result = st.session_state['chain']({"question": query})
         response = result['answer']
         full_response = ""
