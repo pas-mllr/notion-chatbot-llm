@@ -111,7 +111,7 @@ if query := st.chat_input("Ask me anything"):
         # result = "Sorry. I'm still learning"
         result = random.choice(
             [
-                "pyAtlas tab contain all common tools of Revit"
+                "pyAtlas tab contain all common tools of Revit",
                 "We have many panels: RnD Core, Annotation, Datum, Audit_Asset, Collector, Interior, View, Sheet, Other",
                 "Hello there! How can I assist you today?",
                 "Hi, human! Is there anything I can help you with?",
