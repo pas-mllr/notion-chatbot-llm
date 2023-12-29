@@ -118,7 +118,6 @@ if query := st.chat_input("Ask me anything"):
                 "Do you need help?",
             ]
         )
-        # response = result['answer']
         response = result
         full_response = ""
         # Simulate stream of response with milliseconds delay
