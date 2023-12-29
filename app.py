@@ -83,6 +83,12 @@ st.set_page_config(
 )
 # Initialize LLM chain
 chain = load_chain()
+
+def get_text():
+    input_text = st.text_input("You: ", st.session_state.get("input", "Hello, how are you?"), key="input",
+                               placeholder="Your Notion bot, ask me anything")
+    return input_text
+
 # Initialize chat history
 if 'messages' not in st.session_state:
     # Start with first message from assistant
@@ -98,7 +104,9 @@ for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 # Chat logic
-if query := st.chat_input("Ask me anything"):
+query = get_text()
+# if query := st.chat_input("Ask me anything"):
+if query:
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": query})
     # Display user message in chat message container
@@ -107,7 +115,7 @@ if query := st.chat_input("Ask me anything"):
     with st.chat_message("assistant", avatar=company_logo):
         message_placeholder = st.empty()
         # Send user's question to our chain
-        # result = chain({"question": query})
+        result = chain({"question": query})
         # result = "Sorry. I'm still learning"
         # result = random.choice(
         #     [
@@ -118,7 +126,7 @@ if query := st.chat_input("Ask me anything"):
         #         "Do you need help?",
         #     ]
         # )
-        result = st.session_state['chain']({"question": query})
+        # result = st.session_state['chain']({"question": query})
         response = result['answer']
         # response = result
         full_response = ""
