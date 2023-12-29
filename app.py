@@ -43,17 +43,18 @@ if query := st.chat_input("Ask me anything"):
         message_placeholder = st.empty()
         # Send user's question to our chain
         # result = chain({"question": query})
-        result = st.session_state['chain']({"question": query})
-        response = result['answer']
-        full_response = ""
-
-        # Simulate stream of response with milliseconds delay
-        for chunk in response.split():
-            full_response += chunk + " "
-            time.sleep(0.05)
-            # Add a blinking cursor to simulate typing
-            message_placeholder.markdown(full_response + "▌")
-        message_placeholder.markdown(full_response)
+        # result = st.session_state['chain']({"question": query})
+        # response = result['answer']
+        # full_response = ""
+        #
+        # # Simulate stream of response with milliseconds delay
+        # for chunk in response.split():
+        #     full_response += chunk + " "
+        #     time.sleep(0.05)
+        #     # Add a blinking cursor to simulate typing
+        #     message_placeholder.markdown(full_response + "▌")
+        # message_placeholder.markdown(full_response)
+        response = "Hello"
 
     # Add assistant message to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
