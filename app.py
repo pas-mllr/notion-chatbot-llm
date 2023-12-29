@@ -1,9 +1,6 @@
 import time
 import streamlit as st
 from utils import load_chain
-from langchain.chains import VectorDBQAWithSourcesChain
-from langchain import OpenAI
-import pickle
 
 
 # Configure streamlit page
@@ -11,11 +8,8 @@ st.set_page_config(
     page_title="Your Notion Chatbot",
 )
 
-# with open("index.pkl", "rb") as f:
-#     store = pickle.load(f)
-
 # Initialize LLM chain
-chain = VectorDBQAWithSourcesChain.from_llm(llm=OpenAI(temperature=0))
+chain = load_chain()
 
 # # Initialize LLM chain in session_state
 # if 'chain' not in st.session_state:
