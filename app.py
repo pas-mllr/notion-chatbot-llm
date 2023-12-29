@@ -25,7 +25,7 @@ chain = load_chain()
 #     return chain
 
 
-chain = load_chain()
+# chain = load_chain()
 # # Initialize LLM chain in session_state
 # if 'chain' not in st.session_state:
 #     st.session_state['chain']= load_chain()
