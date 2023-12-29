@@ -32,7 +32,7 @@ for message in st.session_state.messages:
             st.markdown(message["content"])
 
 # Chat logic
-if query := st.text_input("Ask me anything"):
+if query := st.chat_input("Ask me anything"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": query})
     # Display user message in chat message container
@@ -42,7 +42,8 @@ if query := st.text_input("Ask me anything"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         # Send user's question to our chain
-        result = chain({"question": query})
+        # result = chain({"question": query})
+        result = st.session_state['chain']({"question": query})
         response = result['answer']
         full_response = ""
 
