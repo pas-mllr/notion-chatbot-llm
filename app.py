@@ -118,9 +118,9 @@ if query := st.chat_input("Ask me anything"):
         #         "Do you need help?",
         #     ]
         # )
-        result = chain({"question": "Hello"})
-        # response = result['answer']
-        response = result
+        result = st.session_state['chain']({"question": query})
+        response = result['answer']
+        # response = result
         full_response = ""
         # Simulate stream of response with milliseconds delay
         for chunk in response.split():
