@@ -109,7 +109,6 @@ if query := st.chat_input("Ask me anything"):
         # Send user's question to our chain
         # result = chain({"question": query})
         # result = "Sorry. I'm still learning"
-        # result = "Sorry. I'm still learning"
         result = random.choice(
             [
                 "pyAtlas tab contain all common tools of Revit"
