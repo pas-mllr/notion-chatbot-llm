@@ -32,7 +32,7 @@ for message in st.session_state.messages:
             st.markdown(message["content"])
 
 # Chat logic
-if query := st.chat_input("Ask me anything"):
+if query := st.text_input("Ask me anything"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": query})
     # Display user message in chat message container
