@@ -74,7 +74,7 @@ import time
 import streamlit as st
 from utils import load_chain
 # Custom image for the app icon and the assistant's avatar
-company_logo = 'https://www.app.nl/wp-content/uploads/2019/01/Blendle.png'
+company_logo = 'https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F136a64bb-3927-46ca-9295-8d2b747b2135%2F998243a1-0e63-4627-90e7-8dd46c28ed00%2Ficon.png?id=2ba2b19f-f03c-4107-be2a-93ff45e8b54d&table=collection&spaceId=136a64bb-3927-46ca-9295-8d2b747b2135&width=60&userId=6b9d30c5-7481-4495-b40c-8213ae426d4f&cache=v2'
 # Configure Streamlit page
 st.set_page_config(
     page_title="Your Notion Chatbot",
