@@ -8,6 +8,9 @@ st.set_page_config(
     page_title="Your Notion Chatbot",
 )
 
+# # Initialize LLM chain
+# chain = load_chain()
+
 # Initialize LLM chain in session_state
 if 'chain' not in st.session_state:
     st.session_state['chain']= load_chain()
@@ -39,7 +42,7 @@ if query := st.chat_input("Ask me anything"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         # Send user's question to our chain
-        result = chain({"question": query})
+        result = st.session_state['chain']({"question": query})
         response = result['answer']
         full_response = ""
 
