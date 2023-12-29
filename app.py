@@ -118,14 +118,14 @@ if query:
         result = chain({"question": query})
         # result = "Sorry. I'm still learning"
         # result = st.session_state['chain']({"question": query})
-        response = result
+        # response = result
         full_response = ""
         # Simulate stream of response with milliseconds delay
-        for chunk in response.split():
+        for chunk in result.split():
             full_response += chunk + " "
             time.sleep(0.05)
             # Add a blinking cursor to simulate typing
             message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
     # Add assistant message to chat history
-    st.session_state.messages.append({"role": "assistant", "content": response})
+    st.session_state.messages.append({"role": "assistant", "content": result})
